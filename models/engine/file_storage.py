@@ -28,7 +28,7 @@ class FileStorage:
         key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj
 
-    def serialize(self):
+    def save(self):
         """
         save - serializes __objects to a JSON file (path: __file_path)
         """
@@ -58,7 +58,7 @@ class FileStorage:
                    "User": User}
         return classes
 
-    def deserialize(self):
+    def reload(self):
         """
         deserializes a JSON file to __objects only if the JASON file
         exists, otherwise raise an exeption ltion that does nothing but return.
