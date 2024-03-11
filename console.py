@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-console.py that contains the entry point of the command interpreter:
+console.py which contains the entry point of the command interpreter:
 """
 import cmd
 from models.base_model import BaseModel
@@ -13,7 +13,7 @@ import re
 
 class HBNBCommand(cmd.Cmd):
     """
-    An entry point of the HBNBCommand command
+    This is the entry point of the HBNBCommand command
     interpreter.
     """
 
@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """
-        method to do nothing when an empty line is inputed.
+        This method to do nothing when an empty line is inputed.
         """
         pass
 
