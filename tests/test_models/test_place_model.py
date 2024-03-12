@@ -66,12 +66,6 @@ class TestUser(unittest.TestCase):
         latitude = getattr(self.newbase, "latitude")
         self.assertIsInstance(latitude, float)
 
-    def test_type_max_guest(self):
-        """
-        Test the type of max_guest
-        """
-        max_guest = getattr(self.newbase, "max_guest")
-        self.assertIsInstance(max_guest, int)
     
     def test_type_price_by_night(self):
         """
@@ -80,6 +74,12 @@ class TestUser(unittest.TestCase):
         price_by_night = getattr(self.newbase, "price_by_night")
         self.assertIsInstance(price_by_night, int)
 
+    def test_type_max_guest(self):
+        """
+        Test the type of max_guest
+        """
+        max_guest = getattr(self.newbase, "max_guest")
+        self.assertIsInstance(max_guest, int)
 
     def test_type_number_bathrooms(self):
         """

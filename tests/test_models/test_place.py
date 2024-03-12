@@ -1,45 +1,73 @@
 #!/usr/bin/python3
-
 """
-test for the user model.
+importing modules
 """
 
-from models.base_model import BaseModel
 import unittest
-from models.city import City
+from datetime import datetime
+import time
+from models.place import Place
+import re
+import json
+from models.engine.file_storage import FileStorage
+import os
+from models import storage
+from models.base_model import BaseModel
+import uuid
 
 
-class TestUser(unittest.TestCase):
+class TestPlace(unittest.TestCase):
+
     """
-    Testing User class
+    class tests for Place class
     """
 
+    def setUp(self):
+        """
+        set up
+        """
+        pass
 
-    def test_User_attributes(self):
-        citybase = City()
-        self.assertTrue("state_id" in citybase.__dir__())
-        self.assertTrue("name" in citybase.__dir__())
+    def tearDown(self):
+        """
+        tear down
+        """
+        self.resetStorage()
+        pass
 
-    def test_City_inheritance(self):
+    def resetStorage(self):
         """
-        tests that the City class Inherits from BaseModel
+        reset storage
         """
-        citybase = City()
-        self.assertIsInstance(citybase, BaseModel)
+        FileStorage._FileStorage__objects = {}
+        if os.path.isfile(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
 
-    def test_name(self):
+    def test_instance(self):
         """
-        Test the type of name
+        test instance
         """
-        new_city = City()
-        name = getattr(new_city, "state_id")
-        self.assertIsInstance(name, str)
 
-    def test_name(self):
-        """
-        Test the type of name
-        """
-        citybase = City()
-        name = getattr(citybase, "name")
-        self.assertIsInstance(name, str)
-        
+        base = Place()
+        self.assertEqual(str(type(base)), "<class 'models.place.Place'>")
+        self.assertIsInstance(base, Place)
+        self.assertTrue(issubclass(type(base), BaseModel))
+
+    def test_attr(self):
+        """check the attributes exist"""
+        base = Place()
+        self.assertTrue(base.user_id == "")
+        self.assertTrue(base.name == "")
+        self.assertTrue(base.city_id == "")
+        self.assertTrue(base.description == "")
+        self.assertTrue(base.price_by_night == 0)
+        self.assertTrue(base.number_rooms == 0)
+        self.assertTrue(base.max_guest == 0)
+        self.assertTrue(base.latitude == 0.0)
+        self.assertTrue(base.amenity_ids == [])
+        self.assertTrue(base.number_bathrooms == 0)
+        self.assertTrue(base.longitude == 0.0)
+
+
+if __name__ == "__main__":
+    unittest.main()
