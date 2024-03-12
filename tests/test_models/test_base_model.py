@@ -2,10 +2,16 @@
 """
 unittest for BaseModel Class
 """
+import json
+import time
+import os
+import re
 import uuid
 import unittest
+from models import storage
 from datetime import datetime
-from ..models.base_model import BaseModel
+from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 
 def test_to_dict(self):
