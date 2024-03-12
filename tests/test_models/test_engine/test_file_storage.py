@@ -53,7 +53,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.__init__()
-        msg = "descriptor '__init__' of 'object' object needs an argument"
+        msg = """descriptor '__init__' of
+        'object' object needs an argument"""
         self.assertEqual(str(e.exception), msg)
 
     def test_init_such_args(self):
@@ -160,8 +161,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.all()
-        msg = "FileStorage.all() missing 1 required
-        positional argument: 'self'"
+        msg = """FileStorage.all() missing 1
+        required positional argument: 'self'"""
         self.assertEqual(str(e.exception), msg)
 
     def test_all_such_args(self):
@@ -169,8 +170,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.all(self, 98)
-        msg = "FileStorage.all() takes 1 positional
-        argument but 2 were given"
+        msg = """FileStorage.all() takes 1
+        positional argument but 2 were given"""
         self.assertEqual(str(e.exception), msg)
 
     """==========================="""
@@ -217,8 +218,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             storage.new()
-        msg = "FileStorage.new() missing 1 required
-        positional argument: 'obj'"
+        msg = """FileStorage.new() missing 1
+        required positional argument: 'obj'"""
         self.assertEqual(str(e.exception), msg)
 
     def test_new_such_args(self):
@@ -227,8 +228,8 @@ class TestFileStorage(unittest.TestCase):
         rat = BaseModel()
         with self.assertRaises(TypeError) as e:
             storage.new(rat, 42)
-        msg = "FileStorage.new() takes 2 positional
-        arguments but 3 were given"
+        msg = """FileStorage.new() takes 2
+        positional arguments but 3 were given"""
         self.assertEqual(str(e.exception), msg)
 
     """==========================="""
@@ -282,7 +283,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.save()
-        msg = "FileStorage.save() missing 1 required positional argument: 'self'"
+        msg = """FileStorage.save() missing 1
+        required positional argument: 'self'"""
         self.assertEqual(str(e.exception), msg)
 
     def test_save_such_args(self):
@@ -290,7 +292,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.save(self, 98)
-        msg = "FileStorage.save() takes 1 positional argument but 2 were given"
+        msg = """FileStorage.save() takes 1
+        positional argument but 2 were given"""
         self.assertEqual(str(e.exception), msg)
 
     """==========================="""
@@ -384,8 +387,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.reload()
-        msg = "FileStorage.reload() missing 1 required
-        positional argument: 'self'"
+        msg = """FileStorage.reload() missing
+        1 required positional argument: 'self'"""
         self.assertEqual(str(e.exception), msg)
 
     def test_reload_such_args(self):
@@ -393,7 +396,8 @@ class TestFileStorage(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             FileStorage.reload(self, 98)
-        msg = "FileStorage.reload() takes 1 positional argument but 2 were given"
+        msg = """FileStorage.reload() takes
+        1 positional argument but 2 were given"""
         self.assertEqual(str(e.exception), msg)
 
 
