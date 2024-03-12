@@ -2,6 +2,11 @@
 """
 unittest for BaseModel Class
 """
+import uuid
+import unittest
+from datetime import datetime
+from ..models.base_model import BaseModel
+
 
 def test_to_dict(self):
     """send to dict"""
