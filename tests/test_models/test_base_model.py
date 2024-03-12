@@ -2,15 +2,15 @@
 """
 unittest for BaseModel Class
 """
-import json
-import time
 import os
+import time
 import re
 import uuid
 import unittest
+import json
 from models import storage
-from datetime import datetime
 from models.base_model import BaseModel
+from datetime import datetime
 from models.engine.file_storage import FileStorage
 
 class TestBaseModel(unittest.TestCase):
